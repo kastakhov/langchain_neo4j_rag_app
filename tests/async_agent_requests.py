@@ -1,9 +1,10 @@
 import asyncio
 import time
 import httpx
+from os import getenv
 
-CHATBOT_URL = "http://localhost:8000/hospital-rag-agent"
-
+CHATBOT_URL = getenv("CHATBOT_URL", "http://localhost:8000")
+CHATBOT_URL = f"{CHATBOT_URL}/rag-agent"
 
 async def make_async_post(url, data):
     timeout = httpx.Timeout(timeout=120)
@@ -23,8 +24,7 @@ async def make_bulk_requests(url, data):
 questions = [
     "What is the current wait time at wallace-hamilton hospital?",
     "Which hospital has the shortest wait time?",
-    """At which hospitals are patients complaining
-    about billing and insurance issues?""",
+    "At which hospitals are patients complaining about billing and insurance issues?",
     "What is the average duration in days for emergency visits?",
     "What are patients saying about the nursing staff at Castaneda-Hardy?",
     "What was the total billing amount charged to each payer for 2023?",
@@ -35,8 +35,7 @@ questions = [
     "Have any patients complained about noise?",
     "How much was billed for patient 789's stay?",
     "Which physician has billed the most to cigna?",
-    """Which state had the largest percent increase in
-    medicaid visits from 2022 to 2023?""",
+    "Which state had the largest percent increase in medicaid visits from 2022 to 2023?",
 ]
 
 request_bodies = [{"text": q} for q in questions]

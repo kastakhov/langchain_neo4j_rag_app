@@ -1,0 +1,49 @@
+{
+  "ae": {
+      "models": {
+          "agent": {
+              "name": "firefunction-v2:70b-q4_K_M",
+              "engine": "ollama",
+              "temperature": 0
+          }
+      },
+      "invoke_max_retries": 3,
+      "invoke_retry_delay": 1
+  },
+  "ot": {
+      "models": {
+          "cypher": {
+              "name": "sambanova/Qwen2.5-Coder-32B-Instruct",
+              "engine": "openai",
+              "temperature": 0
+          },
+          "qa": {
+              "name": "sambanova/Meta-Llama-3.1-8B-Instruct",
+              "engine": "openai",
+              "temperature": 0
+          }
+      },
+      "top_k": 5
+  },
+  "st": {
+      "models": {
+          "qa": {
+              "name": "sambanova/Meta-Llama-3.1-8B-Instruct",
+              "engine": "openai",
+              "temperature": 0
+          },
+          "embedding": {
+              "name": "nebius/BAAI/bge-en-icl",
+              "engine": "openai"
+          }
+      },
+      "k_doc": 12,
+      "fetch_k": 20,
+      "distance_strategy": "COSINE",
+      "pre_delete_collection": false
+  },
+  "langchain": {
+      "debug": true,
+      "verbose": true
+  }
+}

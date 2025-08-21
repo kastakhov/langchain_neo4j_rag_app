@@ -1,0 +1,35 @@
+ae:
+  invoke_max_retries: 3
+  invoke_retry_delay: 1
+  models:
+    agent:
+      engine: ollama
+      name: firefunction-v2:70b-q4_K_M
+      temperature: 0
+langchain:
+  debug: true
+  verbose: true
+ot:
+  models:
+    qa:
+      engine: ollama
+      name: llama3.3:70b-instruct-q6_K
+      temperature: 0
+    cypher:
+      engine: ollama
+      name: tomasonjo/text2cypher-qwen2:72b-q4
+      temperature: 0
+  top_k: 5
+st:
+  distance_strategy: COSINE
+  fetch_k: 20
+  k_doc: 12
+  models:
+    qa:
+      engine: ollama
+      name: llama3.3:70b-instruct-q6_K
+      temperature: 0
+    embedding:
+      engine: ollama
+      name: mxbai-embed-large:335m-v1-fp16
+  pre_delete_collection: false

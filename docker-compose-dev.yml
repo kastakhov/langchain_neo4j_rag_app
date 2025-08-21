@@ -1,0 +1,45 @@
+services:
+  neo4j_db:
+    image: neo4j:5.25-community
+    environment:
+      - NEO4J_dbms_security_auth__minimum__password__length=4
+      - NEO4J_AUTH=neo4j/test
+      - NEO4J_PLUGINS=["apoc"]
+    ports:
+      - "7687:7687"
+    restart: unless-stopped
+
+  neo4j_etl:
+    extends:
+      file: docker-compose.yml
+      service: neo4j_etl
+    depends_on:
+      neo4j_db:
+        condition: service_started
+    env_file:
+      - .env
+    restart: unless-stopped
+  
+  chatbot_api:
+    extends:
+      file: docker-compose.yml
+      service: chatbot_api
+    depends_on:
+      neo4j_db:
+        condition: service_started
+    env_file:
+      - .env
+    volumes:
+      - ./chat-bot-configuration.yaml:/app/chatbot_api/persistent_data/configuration.yaml
+    restart: unless-stopped
+
+  chatbot_frontend:
+    extends:
+      file: docker-compose.yml
+      service: chatbot_frontend
+    depends_on:
+      chatbot_api:
+        condition: service_started
+    env_file:
+      - .env
+    restart: unless-stopped

@@ -1,0 +1,50 @@
+{
+    "ae": {
+        "models": {
+            "agent": {
+                "name": "ollama-openai/functionary-medium-v3.1:q4_k_m",
+                "engine": "openai",
+                "temperature": 0
+            }
+        },
+        "invoke_max_retries": 3,
+        "invoke_retry_delay": 1
+    },
+    "ot": {
+        "models": {
+            "cypher": {
+                "name": "openai-cloudflareaig/gpt-4o-mini",
+                "engine": "openai",
+                "temperature": 0
+            },
+            "qa": {
+                "name": "ollama/sparse-llama3.1:8b-2of4-bf16",
+                "engine": "openai",
+                "temperature": 0
+            }
+        },
+        "top_k": 5
+    },
+    "st": {
+        "models": {
+            "qa": {
+                "name": "ollama/sparse-llama3.1:8b-2of4-bf16",
+                "engine": "openai",
+                "temperature": 0
+            },
+            "embedding": {
+                "name": "nebius/bge-en-icl",
+                "engine": "openai",
+                "temperature": 0
+            }
+        },
+        "k_doc": 12,
+        "fetch_k": 20,
+        "distance_strategy": "COSINE",
+        "pre_delete_collection": false
+    },
+    "langchain": {
+        "debug": true,
+        "verbose": true
+    }
+}

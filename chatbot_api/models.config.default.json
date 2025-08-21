@@ -1,0 +1,43 @@
+{
+  "ae": {
+    "models": {
+      "agent": {
+        "name": "firefunction-v2:70b-q4_K_M",
+        "engine": "ollama",
+        "temperature": 0
+      }
+    }
+  },
+  "ot": {
+    "models": {
+      "cypher": {
+        "name": "tomasonjo/text2cypher-qwen2:72b-q4",
+        "engine": "ollama",
+        "temperature": 0
+      },
+      "qa": {
+        "name": "llama3.3:70b-instruct-q6_K",
+        "engine": "ollama",
+        "temperature": 0
+      }
+    },
+    "top_k": 5
+  },
+  "st": {
+    "models": {
+      "qa": {
+        "name": "llama3.3:70b-instruct-q6_K",
+        "engine": "ollama",
+        "temperature": 0
+      },
+      "embedding": {
+        "name": "mxbai-embed-large:335m-v1-fp16",
+        "engine": "ollama"
+      }
+    },
+    "k_doc": 12,
+    "fetch_k": 20,
+    "distance_strategy": "COSINE",
+    "pre_delete_collection": false
+  }
+}

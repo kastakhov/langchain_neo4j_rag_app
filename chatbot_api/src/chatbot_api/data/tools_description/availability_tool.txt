@@ -1,0 +1,1 @@
+Useful for when you need to find out which hospital has the shortest wait time.

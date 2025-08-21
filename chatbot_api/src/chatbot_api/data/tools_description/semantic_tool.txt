@@ -1,0 +1,1 @@
+Useful for when you need to answer questions about patient experiences, patient feelings or any other qualitative question that could be answered about a patient using semantic search.

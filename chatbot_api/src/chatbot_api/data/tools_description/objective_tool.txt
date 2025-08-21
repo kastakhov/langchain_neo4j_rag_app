@@ -1,0 +1,1 @@
+Useful for when you need to answer questions about patients statistics, physicians statistics, hospitals statistics, insurance payers, patient reviews, hospital visit details or any other objective question that could be answered using a graph database query.
